@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgentOS 2.0 — 100+ Claude Skills | Finance · Engineering · AI · CEO · Legendary</title>
+  <meta name="description" content="100+ production-grade Claude Skills — FinanceOracle, ClaudeMythos, CEOWarRoom, FounderToCEO and more. The most complete multi-agent AI operating system built on Claude 4." />
+  <meta name="keywords" content="claude skills, ai agents, claude 4, anthropic, multi-agent, rag, finance ai, llm skills, prompt engineering, claude mythos, ceo skills, finance oracle" />
+  <meta property="og:title" content="AgentOS 2.0 — 100+ Claude Skills | The Apex AI Operating System" />
+  <meta property="og:description" content="100+ production-grade Claude Skills — FinanceOracle, ClaudeMythos, CEOWarRoom, FounderToCEO. Institutional-depth frameworks for every domain." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Warm white + gold palette */
+      --warm-white:   #fffdf8;
+      --cream:        #faf7f0;
+      --parchment:    #f5efe3;
+      --parchment-2:  #ede5d4;
+      --gold-50:      #fffbeb;
+      --gold-100:     #fef3c7;
+      --gold-200:     #fde68a;
+      --gold-300:     #fcd34d;
+      --gold-400:     #fbbf24;
+      --gold-500:     #f59e0b;
+      --gold-600:     #d97706;
+      --gold-700:     #b45309;
+      --gold-800:     #92400e;
+      --brown-700:    #4a2c17;
+      --brown-800:    #3d1f0d;
+      --brown-900:    #2c1508;
+      --brown-950:    #1a0c04;
+      --text-primary: #1c1208;
+      --text-secondary:#5a3d25;
+      --text-muted:   #9a7555;
+      --border:       #e8d8c0;
+      --border-light: #f0e5d0;
+      --shadow-sm:    0 1px 4px rgba(80,40,10,.08);
+      --shadow-md:    0 4px 20px rgba(80,40,10,.12);
+      --shadow-lg:    0 12px 48px rgba(80,40,10,.16);
+      --shadow-gold:  0 4px 24px rgba(245,158,11,.20);
+      --radius:       14px;
+      --radius-lg:    22px;
+      --transition:   0.22s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text-primary);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--parchment); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-400); border-radius: 99px; }
+
+    /* ── Navbar ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 66px; padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(250,247,240,.93);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-logo {
+      font-size: 1.3rem; font-weight: 900; letter-spacing: -.6px;
+      color: var(--brown-900);
+    }
+    .nav-logo span { color: var(--gold-600); }
+    .nav-badge {
+      background: var(--gold-100); color: var(--gold-700);
+      border: 1px solid var(--gold-200);
+      font-size: .72rem; font-weight: 700;
+      padding: .2rem .55rem; border-radius: 99px;
+      margin-left: .5rem; vertical-align: middle;
+    }
+    .nav-links { display: flex; gap: 2.2rem; align-items: center; }
+    .nav-links a {
+      font-size: .875rem; font-weight: 500; color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold-600); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--brown-900), var(--brown-800)) !important;
+      color: var(--gold-300) !important;
+      padding: .5rem 1.3rem; border-radius: 9px;
+      font-weight: 700; font-size: .85rem;
+      box-shadow: 0 2px 12px rgba(44,21,8,.25);
+      transition: box-shadow var(--transition), transform var(--transition) !important;
+    }
+    .nav-cta:hover { box-shadow: var(--shadow-gold) !important; transform: translateY(-1px); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; text-align: center;
+      padding: 8rem 2rem 6rem;
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 0%, rgba(245,158,11,.16) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 15% 80%, rgba(180,83,9,.10) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 85% 70%, rgba(251,191,36,.08) 0%, transparent 50%),
+        var(--warm-white);
+    }
+
+    /* Gold dot grid background */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(180,130,50,.10) 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    /* Floating gold orbs */
+    .orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      filter: blur(90px); opacity: .7;
+    }
+    .orb-1 { width: 500px; height: 500px; background: rgba(245,158,11,.14); top: -100px; left: -100px; }
+    .orb-2 { width: 350px; height: 350px; background: rgba(180,83,9,.10); bottom: 0; right: -80px; }
+    .orb-3 { width: 250px; height: 250px; background: rgba(251,191,36,.12); top: 40%; left: 60%; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: linear-gradient(135deg, var(--gold-100), var(--gold-50));
+      color: var(--gold-700);
+      border: 1px solid var(--gold-300);
+      padding: .45rem 1.2rem; border-radius: 99px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 12px rgba(245,158,11,.15);
+      animation: fadeDown .6s ease both;
+    }
+    .hero-badge .pulse {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold-500);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.5)} }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(18px)}  to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+    @keyframes shimmer  { 0%{background-position:200% center} 100%{background-position:-200% center} }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7.5vw, 5.8rem);
+      font-weight: 900; letter-spacing: -2.5px;
+      line-height: 1.04; color: var(--brown-900);
+      max-width: 960px; position: relative;
+      animation: fadeUp .7s .15s ease both;
+    }
+    .hero h1 .gold {
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-700), var(--gold-400));
+      background-size: 200% auto;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: var(--text-secondary); max-width: 620px;
+      margin: 1.8rem auto 0; line-height: 1.75;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      margin-top: 2.8rem;
+      animation: fadeUp .7s .45s ease both;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+      color: #fff;
+      padding: .9rem 2.2rem; border-radius: 12px;
+      font-weight: 800; font-size: 1rem;
+      box-shadow: 0 4px 24px rgba(180,83,9,.30);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .btn-gold:hover { box-shadow: 0 8px 36px rgba(180,83,9,.40); transform: translateY(-3px); }
+    .btn-outline {
+      background: transparent; color: var(--brown-900);
+      padding: .9rem 2.2rem; border-radius: 12px;
+      font-weight: 700; font-size: 1rem;
+      border: 2px solid var(--gold-300);
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .btn-outline:hover { border-color: var(--gold-500); background: var(--gold-50); transform: translateY(-3px); }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex; gap: 3.5rem; flex-wrap: wrap; justify-content: center;
+      margin-top: 4.5rem;
+      animation: fadeIn .9s .65s ease both;
+    }
+    .stat { text-align: center; position: relative; }
+    .stat::after {
+      content: '';
+      position: absolute; right: -1.75rem; top: 20%; height: 60%;
+      width: 1px; background: var(--border);
+    }
+    .stat:last-child::after { display: none; }
+    .stat-number {
+      font-size: 2.6rem; font-weight: 900; letter-spacing: -1.5px;
+      background: linear-gradient(135deg, var(--brown-900), var(--gold-600));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: .78rem; color: var(--text-muted); font-weight: 600; margin-top: .2rem; text-transform: uppercase; letter-spacing: .07em; }
+
+    /* ── Section base ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .section-pill {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: linear-gradient(135deg, var(--gold-100), var(--gold-50));
+      color: var(--gold-700); border: 1px solid var(--gold-200);
+      padding: .3rem .9rem; border-radius: 99px;
+      font-size: .73rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900; letter-spacing: -1.2px;
+      color: var(--brown-900); margin-bottom: 1rem; line-height: 1.12;
+    }
+    .section-title .gold {
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-700));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--text-secondary);
+      max-width: 600px; line-height: 1.75;
+    }
+    .section-head { margin-bottom: 4rem; }
+
+    /* ── How it works ── */
+    .how-section { background: var(--parchment); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.5rem;
+    }
+    .step-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem; text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .step-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold-400), var(--gold-600));
+      transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+    }
+    .step-card:hover { box-shadow: var(--shadow-md); transform: translateY(-5px); border-color: var(--gold-200); }
+    .step-card:hover::before { transform: scaleX(1); }
+    .step-num {
+      width: 48px; height: 48px; margin: 0 auto 1.2rem;
+      background: linear-gradient(135deg, var(--gold-100), var(--gold-200));
+      color: var(--gold-700); border: 1px solid var(--gold-300);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1.2rem;
+    }
+    .step-card h3 { font-size: 1rem; font-weight: 800; color: var(--brown-900); margin-bottom: .5rem; }
+    .step-card p { font-size: .855rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── Agent Domains ── */
+    .domains-section { background: var(--warm-white); }
+    .domains-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+    .domain-card {
+      background: var(--cream);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .domain-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--gold-300); }
+    .domain-head {
+      display: flex; align-items: center; gap: .9rem; margin-bottom: 1.5rem;
+    }
+    .domain-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, var(--gold-100), var(--gold-50));
+      border: 1px solid var(--gold-200);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.9rem; flex-shrink: 0;
+    }
+    .domain-name { font-size: 1.1rem; font-weight: 800; color: var(--brown-900); }
+    .domain-count {
+      font-size: .72rem; font-weight: 700; color: var(--gold-700);
+      background: var(--gold-100); border: 1px solid var(--gold-200);
+      padding: .15rem .55rem; border-radius: 99px; margin-top: .25rem;
+    }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+    .skill-item {
+      font-size: .85rem; color: var(--text-secondary); line-height: 1.5;
+      display: flex; align-items: flex-start; gap: .55rem;
+    }
+    .skill-item::before { content: '⟶'; color: var(--gold-500); font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: .85rem; }
+    .skill-item strong { color: var(--text-primary); font-weight: 700; }
+
+    /* ── Skills grid ── */
+    .skills-section { background: var(--parchment); }
+    .skills-mosaic {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem;
+    }
+    .skill-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.3rem;
+      display: flex; align-items: flex-start; gap: .85rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .skill-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--gold-200); }
+    .skill-gem {
+      width: 10px; height: 10px; border-radius: 3px;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+      flex-shrink: 0; margin-top: 4px;
+    }
+    .skill-name {
+      font-family: 'Fira Code', monospace;
+      font-size: .78rem; font-weight: 600; color: var(--gold-700); margin-bottom: .25rem;
+    }
+    .skill-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── Quick Start ── */
+    .quickstart-section { background: var(--warm-white); }
+    .qs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
+    .qs-card {
+      background: var(--cream); border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg); padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .qs-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--gold-300); }
+    .qs-num {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+      color: #fff; font-weight: 900; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; box-shadow: 0 2px 12px rgba(180,83,9,.25);
+    }
+    .qs-card h3 { font-size: 1rem; font-weight: 800; color: var(--brown-900); margin-bottom: .5rem; }
+    .qs-card p { font-size: .875rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem; }
+    .code-block {
+      background: var(--brown-950); color: #f5e4c0;
+      border-radius: 10px; padding: 1.1rem 1.2rem;
+      font-family: 'Fira Code', monospace; font-size: .77rem;
+      line-height: 1.75; overflow-x: auto; white-space: pre;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .code-comment { color: #9a7555; }
+
+    /* ── Comparison ── */
+    .compare-section { background: var(--parchment); }
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--warm-white);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+    }
+    .compare-table th {
+      background: var(--brown-900); color: var(--gold-300);
+      padding: 1.1rem 1.5rem; text-align: left;
+      font-size: .875rem; font-weight: 700;
+    }
+    .compare-table th:first-child { border-radius: 0; }
+    .compare-table td {
+      padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-light);
+      font-size: .875rem; color: var(--text-secondary);
+    }
+    .compare-table td:first-child { font-weight: 600; color: var(--text-primary); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:hover td { background: var(--gold-50); }
+    .check { color: var(--gold-500); font-weight: 800; font-size: 1.1rem; }
+    .cross { color: #c0a080; }
+    .ours { background: var(--gold-50) !important; font-weight: 700; color: var(--gold-700) !important; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--brown-950), var(--brown-900), var(--brown-800));
+      text-align: center; padding: 7rem 2rem; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(245,158,11,.06) 1px, transparent 1px);
+      background-size: 28px 28px; pointer-events: none;
+    }
+    .cta-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none;
+    }
+    .cta-orb-1 { width: 400px; height: 400px; background: rgba(245,158,11,.10); top: -100px; left: -100px; }
+    .cta-orb-2 { width: 300px; height: 300px; background: rgba(180,83,9,.08); bottom: -80px; right: -80px; }
+    .cta-section .section-title { color: #fff; }
+    .cta-section p { color: rgba(255,255,255,.65); font-size: 1.1rem; max-width: 540px; margin: 1.2rem auto 3rem; line-height: 1.75; }
+    .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: linear-gradient(135deg, var(--brown-900), var(--brown-800));
+      padding: 3rem 2rem;
+    }
+    .stats-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem; text-align: center;
+    }
+    .stats-bar-item .num {
+      font-size: 2.4rem; font-weight: 900; letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stats-bar-item .label {
+      font-size: .78rem; color: rgba(255,255,255,.55);
+      text-transform: uppercase; letter-spacing: .09em; margin-top: .3rem; font-weight: 600;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--brown-950);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1.5rem;
+      font-size: .875rem; color: rgba(255,255,255,.45);
+    }
+    .footer-logo { font-weight: 900; color: #fff; font-size: 1.1rem; }
+    .footer-logo span { color: var(--gold-400); }
+    footer a { color: rgba(255,255,255,.4); transition: color var(--transition); }
+    footer a:hover { color: var(--gold-400); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    /* ── Apex Skills Section ── */
+    .apex-section {
+      background: linear-gradient(160deg, var(--brown-950) 0%, #1a0c04 40%, #0d0602 100%);
+      position: relative; overflow: hidden;
+    }
+    .apex-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(245,158,11,.05) 1px, transparent 1px);
+      background-size: 24px 24px; pointer-events: none;
+    }
+    .apex-orb {
+      position: absolute; border-radius: 50%; pointer-events: none; filter: blur(100px);
+    }
+    .apex-orb-1 { width: 600px; height: 600px; background: rgba(245,158,11,.07); top: -150px; left: -150px; }
+    .apex-orb-2 { width: 400px; height: 400px; background: rgba(180,83,9,.06); bottom: -100px; right: -100px; }
+    .apex-section .section-pill {
+      background: linear-gradient(135deg, rgba(245,158,11,.2), rgba(180,83,9,.15));
+      border-color: rgba(245,158,11,.3); color: var(--gold-300);
+    }
+    .apex-section .section-title { color: #fff; }
+    .apex-section .section-sub { color: rgba(255,255,255,.55); }
+    .apex-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem;
+    }
+    .apex-card {
+      background: linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid rgba(245,158,11,.2);
+      border-radius: var(--radius-lg); padding: 2.2rem;
+      position: relative; overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    .apex-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-400), var(--gold-500), transparent);
+      opacity: 0; transition: opacity .35s ease;
+    }
+    .apex-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,158,11,.06) 0%, transparent 70%);
+      opacity: 0; transition: opacity .35s ease;
+    }
+    .apex-card:hover {
+      border-color: rgba(245,158,11,.5);
+      box-shadow: 0 0 40px rgba(245,158,11,.12), 0 8px 32px rgba(0,0,0,.4);
+      transform: translateY(-4px);
+    }
+    .apex-card:hover::before, .apex-card:hover::after { opacity: 1; }
+    .apex-card-crown {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: linear-gradient(135deg, rgba(245,158,11,.2), rgba(180,83,9,.15));
+      color: var(--gold-300); border: 1px solid rgba(245,158,11,.3);
+      padding: .25rem .75rem; border-radius: 99px;
+      font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .apex-card-title {
+      font-size: 1.45rem; font-weight: 900; letter-spacing: -.5px;
+      background: linear-gradient(135deg, var(--gold-300), var(--gold-500), var(--gold-400));
+      background-size: 200% auto;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+      margin-bottom: .6rem;
+    }
+    .apex-card-sub {
+      font-size: .82rem; color: rgba(255,255,255,.45); margin-bottom: 1.4rem;
+      font-family: 'Fira Code', monospace; letter-spacing: .02em;
+    }
+    .apex-card-desc {
+      font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .apex-features { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .apex-features li {
+      font-size: .82rem; color: rgba(255,255,255,.5); display: flex; gap: .5rem; align-items: flex-start;
+    }
+    .apex-features li::before { content: '✦'; color: var(--gold-500); flex-shrink: 0; font-size: .75rem; margin-top: 2px; }
+    .apex-link {
+      display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.5rem;
+      font-size: .8rem; font-weight: 700; color: var(--gold-400);
+      font-family: 'Fira Code', monospace;
+      transition: color var(--transition); letter-spacing: .02em;
+    }
+    .apex-link:hover { color: var(--gold-300); }
+    .apex-link::after { content: ' →'; }
+
+    /* ── Languages / Tech strip ── */
+    .lang-strip {
+      background: var(--parchment-2);
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .lang-strip-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    }
+    .lang-label {
+      font-size: .72rem; font-weight: 700; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: .1em; margin-right: .5rem;
+    }
+    .lang-badge {
+      background: var(--warm-white); color: var(--brown-900);
+      border: 1px solid var(--border);
+      padding: .3rem .75rem; border-radius: 7px;
+      font-size: .74rem; font-weight: 700; font-family: 'Fira Code', monospace;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .lang-badge:hover { border-color: var(--gold-400); background: var(--gold-50); }
+
+    /* ── Live demo terminal ── */
+    .demo-section { background: var(--brown-950); padding: 5rem 2rem; position: relative; overflow: hidden; }
+    .demo-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(245,158,11,.04) 1px, transparent 1px);
+      background-size: 22px 22px; pointer-events: none;
+    }
+    .demo-section .section-title { color: #fff; }
+    .demo-section .section-sub { color: rgba(255,255,255,.5); }
+    .demo-section .section-pill {
+      background: rgba(245,158,11,.12); color: var(--gold-300); border-color: rgba(245,158,11,.25);
+    }
+    .demo-img-wrap {
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid rgba(245,158,11,.15);
+      box-shadow: 0 0 60px rgba(245,158,11,.08), 0 20px 60px rgba(0,0,0,.5);
+      transition: box-shadow .4s ease, transform .4s ease;
+    }
+    .demo-img-wrap:hover {
+      box-shadow: 0 0 80px rgba(245,158,11,.15), 0 24px 70px rgba(0,0,0,.6);
+      transform: translateY(-4px);
+    }
+    .demo-img-wrap img { width: 100%; display: block; }
+
+    /* ── Skill card apex variant ── */
+    .skill-card.apex {
+      border-color: rgba(245,158,11,.35);
+      background: linear-gradient(135deg, var(--gold-50), var(--warm-white));
+    }
+    .skill-card.apex .skill-name { color: var(--gold-600); }
+    .skill-card.apex .skill-gem {
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-700));
+      box-shadow: 0 2px 8px rgba(180,83,9,.3);
+    }
+
+    /* ── Enhanced domain card hover ── */
+    .domain-card {
+      position: relative; overflow: hidden;
+    }
+    .domain-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold-400), var(--gold-600));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .domain-card:hover::after { transform: scaleX(1); }
+
+    /* ── Animated counter ── */
+    .stat-number, .stats-bar-item .num { transition: all .3s ease; }
+
+    /* Canvas particles */
+    #particles { position: absolute; inset: 0; pointer-events: none; opacity: .45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      section { padding: 4rem 1.25rem; }
+      .hero-stats { gap: 2rem; }
+      .hero h1 { letter-spacing: -1.5px; }
+      .apex-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav>
+  <div class="nav-logo">Agent<span>OS</span><span class="nav-badge">2.0</span></div>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#agents">Agents</a>
+    <a href="#skills">Skills</a>
+    <a href="#quickstart">Quick Start</a>
+    <a href="#compare">Compare</a>
+    <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version" class="nav-cta" target="_blank">⭐ Star on GitHub</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero" id="home">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <canvas id="particles"></canvas>
+
+  <div class="hero-badge">
+    <span class="pulse"></span>
+    100+ Skills · 10 Domains · Claude 4.x · 4 Apex Legends · MIT License
+  </div>
+
+  <h1>
+    One File.<br/>
+    <span class="gold">100+ Specialists.</span><br/>
+    Zero Setup.
+  </h1>
+
+  <p>
+    AgentOS is the world's most comprehensive collection of production-grade Claude Skills. Drop any <code style="font-family:'Fira Code',monospace;font-size:.9em;background:var(--gold-50);padding:.1rem .4rem;border-radius:5px;border:1px solid var(--gold-200)">SKILL.md</code> into Claude and unlock an expert agent with institutional-depth frameworks, formulas, and output formats.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#quickstart" class="btn-gold">Get Started Free →</a>
+    <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version" class="btn-outline" target="_blank">⭐ Star on GitHub</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number" data-target="100">0</div>
+      <div class="stat-label">Claude Skills</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number" data-target="10">0</div>
+      <div class="stat-label">Domains</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number" data-target="4">0</div>
+      <div class="stat-label">Apex Legends</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number" data-target="120">0</div>
+      <div class="stat-label">Frameworks</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats bar ── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stats-bar-item"><div class="num" data-target="100">0+</div><div class="label">Production Skills</div></div>
+    <div class="stats-bar-item"><div class="num" data-target="10">0</div><div class="label">Agent Domains</div></div>
+    <div class="stats-bar-item"><div class="num" data-target="4">0</div><div class="label">Apex Legends</div></div>
+    <div class="stats-bar-item"><div class="num">MIT</div><div class="label">Free License</div></div>
+    <div class="stats-bar-item"><div class="num">60s</div><div class="label">Setup Time</div></div>
+  </div>
+</div>
+
+<!-- ── Languages Strip ── -->
+<div class="lang-strip">
+  <div class="lang-strip-inner">
+    <span class="lang-label">Code Examples In:</span>
+    <span class="lang-badge">Python</span>
+    <span class="lang-badge">TypeScript</span>
+    <span class="lang-badge">JavaScript</span>
+    <span class="lang-badge">Go</span>
+    <span class="lang-badge">Rust</span>
+    <span class="lang-badge">SQL</span>
+    <span class="lang-badge">Solidity</span>
+    <span class="lang-badge">Shell / Bash</span>
+    <span class="lang-badge">YAML</span>
+    <span class="lang-badge">Cypher</span>
+    <span class="lang-badge">HTML / CSS</span>
+  </div>
+</div>
+
+<!-- ── How It Works ── -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-pill">⚡ How It Works</div>
+      <h2 class="section-title">Right agent.<br/><span class="gold">Every task.</span></h2>
+      <p class="section-sub">AgentOS uses a 6-step orchestration loop — each step runs in Claude's context the moment you paste a skill.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><h3>Identify</h3><p>Classifies the domain, complexity, and which specialist agent is needed based on your task keywords.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h3>Decompose</h3><p>Breaks complex tasks into focused sub-tasks, each matched to a specialist's core strength.</p></div>
+      <div class="step-card"><div class="step-num">3</div><h3>Route</h3><p>Dispatches each sub-task to the right agent with the right skill set — parallel or sequential.</p></div>
+      <div class="step-card"><div class="step-num">4</div><h3>Execute</h3><p>Each agent applies its frameworks, formulas, and sub-agents. Full depth — no hand-waving.</p></div>
+      <div class="step-card"><div class="step-num">5</div><h3>Synthesize</h3><p>All outputs merged into one coherent, structured response with consistent format.</p></div>
+      <div class="step-card"><div class="step-num">6</div><h3>Deliver</h3><p>Executive Summary · Full Output · Confidence Level · Next Steps · Caveats. Always.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Agent Domains ── -->
+<section class="domains-section" id="agents">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-pill">🤖 Agent Roster</div>
+      <h2 class="section-title">10 domains.<br/><span class="gold">100+ specialists.</span></h2>
+      <p class="section-sub">Every agent has sub-agents, trigger keywords, real frameworks, output format templates, and specific forbidden behaviors.</p>
+    </div>
+    <div class="domains-grid">
+
+      <div class="domain-card" style="border-color:var(--gold-300);background:linear-gradient(135deg,var(--gold-50),var(--warm-white));">
+        <div class="domain-head">
+          <div class="domain-icon">👑</div>
+          <div><div class="domain-name" style="background:linear-gradient(135deg,var(--gold-600),var(--gold-800));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Apex Legendary Tier</div><div class="domain-count">4 Skills</div></div>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><strong>FinanceOracle</strong> — Goldman + Bridgewater + Citadel · Black-Scholes, Black-Litterman, risk parity</li>
+          <li class="skill-item"><strong>ClaudeMythos</strong> — Claude's highest form · 7-level stack, SystemPromptForge, cross-domain synthesis</li>
+          <li class="skill-item"><strong>CEOWarRoom</strong> — McKinsey + Sequoia + Fortune 50 · moat defense, activist playbook, crisis 5Rs</li>
+          <li class="skill-item"><strong>FounderToCEO</strong> — Pre-seed to IPO · PMF scorecard, term sheet flags, VP Sales rubric</li>
+        </ul>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-head">
+          <div class="domain-icon">💹</div>
+          <div><div class="domain-name">Finance & Investment</div><div class="domain-count">9 Skills</div></div>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><strong>QuantTrader</strong> — JSON signals: entry/target/stop/R:R, Kelly sizing, regime</li>
+          <li class="skill-item"><strong>CFO-Intelligence</strong> — P&L, 3-statement model, variance analysis, board reports</li>
+          <li class="skill-item"><strong>RiskSentinel</strong> — VaR 95%/99%, CVaR, Monte Carlo, COSO ERM heat maps</li>
+          <li class="skill-item"><strong>M&A DealMaker</strong> — DCF, LBO, QoE review, synergy modeling, IC memos</li>
+          <li class="skill-item"><strong>CryptoSage</strong> — MVRV, SOPR, NVT, DeFi TVL, tokenomics, rug pull flags</li>
+          <li class="skill-item"><strong>ESG-Compass</strong> — Scope 1/2/3, TCFD/SFDR, 20-metric ESG scoring</li>
+        </ul>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-head">
+          <div class="domain-icon">🤖</div>
+          <div><div class="domain-name">AI & Engineering</div><div class="domain-count">10 Skills</div></div>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><strong>RAG-Architect</strong> — Hybrid search: chunking → pgvector → BM25 → re-rank → grounding</li>
+          <li class="skill-item"><strong>AgentSmith</strong> — Multi-agent topology, routing, tool schemas, memory, eval</li>
+          <li class="skill-item"><strong>SeniorDev</strong> — Complete Next.js 14 + FastAPI: TypeScript strict, zero partials</li>
+          <li class="skill-item"><strong>DevOps-Commander</strong> — GitHub Actions, Kubernetes manifests, Terraform, Prometheus</li>
+          <li class="skill-item"><strong>MCP-Builder</strong> — MCP server in Python + TypeScript, tool/resource/prompt design</li>
+          <li class="skill-item"><strong>PromptEngineer</strong> — System prompt design, CoT, eval frameworks, injection guard</li>
+        </ul>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-head">
+          <div class="domain-icon">📊</div>
+          <div><div class="domain-name">Data & Analytics</div><div class="domain-count">8 Skills</div></div>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><strong>DataScientist-Pro</strong> — EDA, feature engineering, SHAP, model selection</li>
+          <li class="skill-item"><strong>TimeSeriesOracle</strong> — ARIMA/Prophet/LSTM, Isolation Forest, prediction intervals</li>
+          <li class="skill-item"><strong>SQLAnalyzer</strong> — Window functions, CTEs, N+1 elimination, index strategy</li>
+          <li class="skill-item"><strong>ABTest-Scientist</strong> — Power analysis, Bayesian, DiD, Bonferroni/BH correction</li>
+          <li class="skill-item"><strong>DatabaseGenius</strong> — Schema design, EXPLAIN, zero-downtime migration, pgvector</li>
+          <li class="skill-item"><strong>DataGovernance</strong> — PII tiers, data catalog, GDPR retention, quality scoring</li>
+        </ul>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-head">
+          <div class="domain-icon">🏢</div>
+          <div><div class="domain-name">Operations & Business</div><div class="domain-count">14 Skills</div></div>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><strong>CEOWarRoom</strong> — Capital allocation, moat defense, board navigation, activist defense</li>
+          <li class="skill-item"><strong>FounderToCEO</strong> — Pre-seed to IPO, PMF detection, term sheet review, exec hiring</li>
+          <li class="skill-item"><strong>ProductStrategy</strong> — PRD writing, RICE scoring, north star, LTV/CAC</li>
+          <li class="skill-item"><strong>B2BSalesPlaybook</strong> — MEDDPICC, discovery framework, business case writing</li>
+          <li class="skill-item"><strong>SaaSMetricsAnalyst</strong> — ARR/NRR/GRR, Rule of 40, magic number, benchmarks</li>
+          <li class="skill-item"><strong>PricingStrategist</strong> — Value-based, usage-based, Van Westendorp WTP research</li>
+          <li class="skill-item"><strong>LegalEagle</strong> — Contract review, GDPR/SOX gaps, NDA analysis (not legal advice)</li>
+          <li class="skill-item"><strong>FinancialModelBuilder</strong> — 3-statement model, sensitivity tables, scenario switcher</li>
+        </ul>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-head">
+          <div class="domain-icon">🌐</div>
+          <div><div class="domain-name">Specialized Domains</div><div class="domain-count">12 Skills</div></div>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><strong>BiotechAnalyst</strong> — Clinical PoS, rNPV, FDA expedited programs, IP moat</li>
+          <li class="skill-item"><strong>ClimateTechAnalyst</strong> — GHG Scope 1/2/3, TCFD, solar/storage LCOE, SBTi</li>
+          <li class="skill-item"><strong>CybersecurityAnalyst</strong> — MITRE ATT&CK, threat hunting, DFIR, threat intel</li>
+          <li class="skill-item"><strong>Web3-Developer</strong> — Gas-optimized Solidity, reentrancy detection, Foundry tests</li>
+          <li class="skill-item"><strong>HealthcareAnalytics</strong> — HIPAA-safe, HEDIS, LACE readmission, capacity planning</li>
+          <li class="skill-item"><strong>PatentAnalyst</strong> — Prior art, FTO methodology, IP landscape, claim analysis</li>
+        </ul>
+      </div>
+
+      <div class="domain-card">
+        <div class="domain-head">
+          <div class="domain-icon">🛠</div>
+          <div><div class="domain-name">Developer Tools</div><div class="domain-count">9 Skills</div></div>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><strong>CodeReviewer</strong> — Correctness, security (OWASP), performance, architecture review</li>
+          <li class="skill-item"><strong>WebAppTester</strong> — Playwright E2E, pytest API, accessibility, test pyramid</li>
+          <li class="skill-item"><strong>SystemArchitect</strong> — System design, CAP theorem, monolith vs microservices, ADRs</li>
+          <li class="skill-item"><strong>DocumentProcessor</strong> — DOCX/PDF/PPTX/XLSX extraction, comparison, structuring</li>
+          <li class="skill-item"><strong>MeetingAnalyzer</strong> — Action items, decisions, blockers, follow-up email drafting</li>
+          <li class="skill-item"><strong>AgenticWorkflowBuilder</strong> — ReAct, HITL, error recovery, cost control patterns</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Apex Skills ── -->
+<section class="apex-section" id="apex">
+  <div class="apex-orb apex-orb-1"></div>
+  <div class="apex-orb apex-orb-2"></div>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-pill">👑 Apex Tier</div>
+      <h2 class="section-title">The 4 Legendary Skills</h2>
+      <p class="section-sub">These are the deepest, most powerful skills in AgentOS — each one is a synthesis of what the best minds in their domain actually do.</p>
+    </div>
+    <div class="apex-grid">
+
+      <div class="apex-card">
+        <div class="apex-card-crown">♦ Finance Apex</div>
+        <div class="apex-card-title">FinanceOracle</div>
+        <div class="apex-card-sub">Goldman · Bridgewater · Citadel · Family Office CIO</div>
+        <div class="apex-card-desc">The most complete institutional finance skill ever built for Claude. Black-Scholes options pricing, Black-Litterman portfolio construction, risk parity, fixed income duration/convexity, hedge fund strategy design, endowment model, and tax optimization — every formula, all asset classes.</div>
+        <ul class="apex-features">
+          <li>Black-Scholes + Greeks + implied vol Newton-Raphson (Python)</li>
+          <li>Black-Litterman posterior returns + optimal weights (Python)</li>
+          <li>Risk parity equal-contribution optimizer (Python + scipy)</li>
+          <li>Strategy Sharpe/Sortino/Calmar/Omega metrics (TypeScript)</li>
+          <li>Yale Endowment Model illiquidity budget (Go)</li>
+          <li>Tax optimization: QSBS, Opportunity Zone, wash sale avoidance</li>
+        </ul>
+        <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version/blob/main/finance-oracle/SKILL.md" class="apex-link" target="_blank">finance-oracle/SKILL.md</a>
+      </div>
+
+      <div class="apex-card">
+        <div class="apex-card-crown">✦ Apex Intelligence</div>
+        <div class="apex-card-title">ClaudeMythos</div>
+        <div class="apex-card-sub">Cross-Domain Synthesis · SystemPromptForge · Civilizational Scale</div>
+        <div class="apex-card-desc">Claude's highest form. When activated, Claude operates beyond conventional assistant mode — synthesizing across 6+ domains, building legendary system prompts, reasoning at civilization scale, and creating worlds with internal consistency. The 7-level civilizational stack. The laws of legendary intelligence.</div>
+        <ul class="apex-features">
+          <li>The 7-Level Civilizational Stack analysis framework</li>
+          <li>SystemPromptForge: 5-layer legendary prompt architecture</li>
+          <li>Paradox Resolution Method + Cross-Domain Oracle mode</li>
+          <li>Mythopoeic World-Building (Rust struct template)</li>
+          <li>The AgentOS Origin Mythology</li>
+          <li>FutureHistorian: writes history from 50 years ahead</li>
+        </ul>
+        <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version/blob/main/claude-mythos/SKILL.md" class="apex-link" target="_blank">claude-mythos/SKILL.md</a>
+      </div>
+
+      <div class="apex-card">
+        <div class="apex-card-crown">⬡ CEO Apex</div>
+        <div class="apex-card-title">CEOWarRoom</div>
+        <div class="apex-card-sub">McKinsey · Sequoia Board · Fortune 50 CEO · Crisis Expert</div>
+        <div class="apex-card-desc">Elite CEO decision intelligence. Capital allocation ROIC stack, competitive moat erosion early warning system, activist investor defense playbook, board management rhythms, and the 5Rs crisis communication framework. Built for decisions that compound over decades.</div>
+        <ul class="apex-features">
+          <li>Capital allocation priority stack: ROIC vs. WACC framework (Python)</li>
+          <li>6 moat sources updated for 2025 — including AI Flywheel moat</li>
+          <li>Moat erosion early warning signals (TypeScript)</li>
+          <li>Activist investor 3-phase response playbook</li>
+          <li>Board quarterly agenda + pre-read structure</li>
+          <li>5Rs crisis communication framework + templates</li>
+        </ul>
+        <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version/blob/main/ceo-war-room/SKILL.md" class="apex-link" target="_blank">ceo-war-room/SKILL.md</a>
+      </div>
+
+      <div class="apex-card">
+        <div class="apex-card-crown">◈ Founder Apex</div>
+        <div class="apex-card-title">FounderToCEO</div>
+        <div class="apex-card-sub">Pre-Seed → IPO · No Sugarcoating · Built for Operators</div>
+        <div class="apex-card-desc">The definitive founder-to-CEO intelligence agent. Round sizing formula, 10-slide fundraising narrative architecture, term sheet red flag scoring (Python), PMF detection scorecard, pivot decision framework, VP of Sales hiring rubric (TypeScript), and the psychological survival guide nobody else writes.</div>
+        <ul class="apex-features">
+          <li>Round sizing formula + dilution guidelines (seed → IPO)</li>
+          <li>10-slide fundraising narrative architecture</li>
+          <li>Term sheet red flag scorer — participating preferred, ratchets (Python)</li>
+          <li>PMF detection scorecard: 5 strong signals, 5 secondary signals</li>
+          <li>VP of Sales hiring rubric with weighted scoring (TypeScript)</li>
+          <li>6 psychological truths nobody tells founders</li>
+        </ul>
+        <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version/blob/main/founder-to-ceo/SKILL.md" class="apex-link" target="_blank">founder-to-ceo/SKILL.md</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Live Demo ── -->
+<section class="demo-section">
+  <div class="container">
+    <div class="section-head" style="text-align:center;">
+      <div class="section-pill" style="display:inline-flex;">⚡ Live Demo</div>
+      <h2 class="section-title" style="color:#fff;">See FinanceOracle<br/><span class="gold">in action.</span></h2>
+      <p class="section-sub" style="margin:0 auto;color:rgba(255,255,255,.5);">Watch the FinanceOracle skill analyze an NVDA earnings options play — Black-Scholes vol analysis, vol crush warning, and iron condor construction in real-time.</p>
+    </div>
+    <div class="demo-img-wrap" style="max-width:900px;margin:0 auto;">
+      <img src="demo-skill-live.svg" alt="FinanceOracle live skill demo — NVDA options analysis with Black-Scholes, vol crush warning, iron condor" />
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:.8rem;color:rgba(255,255,255,.3);font-family:'Fira Code',monospace;">
+      finance-oracle skill · options desk sub-agent · macro strategist sub-agent
+    </p>
+  </div>
+</section>
+
+<!-- ── Skills Grid ── -->
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-pill">🔧 Skills Library</div>
+      <h2 class="section-title">Real frameworks.<br/><span class="gold">Real formulas.</span></h2>
+      <p class="section-sub">Every skill includes named methodologies — not vague instructions. Drop it in Claude and get a domain specialist with actual depth.</p>
+    </div>
+    <div class="skills-mosaic">
+      <div class="skill-card apex"><div class="skill-gem"></div><div><div class="skill-name">Black-Scholes + Black-Litterman</div><div class="skill-desc">Options Greeks, implied vol, portfolio construction — institutional formulas (Python + TypeScript)</div></div></div>
+      <div class="skill-card apex"><div class="skill-gem"></div><div><div class="skill-name">7-Level Civilizational Stack</div><div class="skill-desc">ClaudeMythos analysis framework: Myth → Economics → Technical — full cross-domain synthesis</div></div></div>
+      <div class="skill-card apex"><div class="skill-gem"></div><div><div class="skill-name">6-Source Moat Framework (2025)</div><div class="skill-desc">CEOWarRoom: updated with AI Flywheel moat + erosion early warning signals (TypeScript)</div></div></div>
+      <div class="skill-card apex"><div class="skill-gem"></div><div><div class="skill-name">PMF Detection Scorecard</div><div class="skill-desc">FounderToCEO: 5 strong + 5 secondary PMF signals, pivot framework, term sheet red flags</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">VaR @ 95%/99% + CVaR</div><div class="skill-desc">Parametric, Historical, Monte Carlo — with Basel III stress tests</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">Hybrid RAG Pipeline</div><div class="skill-desc">70% dense + 30% BM25, cross-encoder re-rank, hallucination detection</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">Kelly Criterion Sizing</div><div class="skill-desc">Fractional Kelly position sizing with regime-aware strategy selection</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">Multi-Agent ReAct Loop</div><div class="skill-desc">Reason → Act → Observe loop with human approval gates</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">STRIDE Threat Modeling</div><div class="skill-desc">Spoofing, Tampering, Repudiation, Info Disclosure, DoS, Elevation</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">MEDDPICC Qualification</div><div class="skill-desc">8-dimension B2B deal scoring with risk flags and coaching</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">DCF + LBO Valuation</div><div class="skill-desc">Multi-stage DCF, WACC, terminal value, sensitivity tables</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">LACE Readmission Index</div><div class="skill-desc">Clinical 30-day readmission scoring — HIPAA-safe, HEDIS-aligned</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">rNPV Biotech Valuation</div><div class="skill-desc">Risk-adjusted NPV with Phase PoS × discount rate × cash flow model</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">MITRE ATT&CK Mapping</div><div class="skill-desc">Tactic-technique mapping, threat hunting hypotheses, DFIR phases</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">Scope 1/2/3 GHG Accounting</div><div class="skill-desc">GHG Protocol with IPCC AR6 GWP100, TCFD risk, SBTi targets</div></div></div>
+      <div class="skill-card"><div class="skill-gem"></div><div><div class="skill-name">MCP Server Design</div><div class="skill-desc">Tools, resources, prompts — Python + TypeScript implementations</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quick Start ── -->
+<section class="quickstart-section" id="quickstart">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-pill">🚀 Quick Start</div>
+      <h2 class="section-title">Up in <span class="gold">60 seconds.</span></h2>
+      <p class="section-sub">Four ways to activate any AgentOS skill — pick the one that fits your workflow.</p>
+    </div>
+    <div class="qs-grid">
+      <div class="qs-card">
+        <div class="qs-num">1</div>
+        <h3>Claude.ai Projects</h3>
+        <p>Create a Project, open Project Instructions, paste any SKILL.md. Every chat in that project activates the agent.</p>
+        <div class="code-block"><span class="code-comment"># 1. Open claude.ai → Projects</span>
+<span class="code-comment"># 2. New Project → Instructions</span>
+<span class="code-comment"># 3. Paste SKILL.md contents</span>
+<span class="code-comment"># 4. Start chatting ✓</span></div>
+      </div>
+      <div class="qs-card">
+        <div class="qs-num">2</div>
+        <h3>Claude Code CLI</h3>
+        <p>Append any skill to your project's CLAUDE.md. Combine multiple skills to create a custom AI team.</p>
+        <div class="code-block"><span class="code-comment"># Single skill</span>
+cat quant-trader/SKILL.md >> .claude/CLAUDE.md
+
+<span class="code-comment"># Full AgentOS (all 100+)</span>
+cat agentOS-orchestrator/SKILL.md \
+  >> .claude/CLAUDE.md</div>
+      </div>
+      <div class="qs-card">
+        <div class="qs-num">3</div>
+        <h3>Claude API (Python)</h3>
+        <p>Pass the SKILL.md contents as the system parameter. Works with any Claude model.</p>
+        <div class="code-block">with open("quant-trader/SKILL.md") as f:
+    skill = f.read()
+
+client.messages.create(
+    model="claude-sonnet-4-6",
+    system=skill,
+    messages=[{
+      "role": "user",
+      "content": "Signal on NVDA"
+    }]
+)</div>
+      </div>
+      <div class="qs-card">
+        <div class="qs-num">4</div>
+        <h3>Cursor / Windsurf</h3>
+        <p>Paste SKILL.md into your IDE's AI rules file. Works with any Claude-backed IDE extension.</p>
+        <div class="code-block"><span class="code-comment"># Cursor</span>
+.cursor/rules
+
+<span class="code-comment"># Windsurf</span>
+.windsurfrules
+
+<span class="code-comment"># Any IDE: paste into</span>
+<span class="code-comment"># AI custom instructions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Compare ── -->
+<section class="compare-section" id="compare">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-pill">📊 Comparison</div>
+      <h2 class="section-title">Why AgentOS is <span class="gold">different.</span></h2>
+      <p class="section-sub">Most skill repos give you vague instructions. AgentOS gives you real frameworks, formulas, and thresholds.</p>
+    </div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Generic Skill Repos</th>
+          <th style="color:var(--gold-300)">AgentOS 2.0</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Total skills</td><td>10–20</td><td class="ours">100+ (and growing)</td></tr>
+        <tr><td>Named sub-agents</td><td class="cross">✗ Rarely</td><td class="ours"><span class="check">✓</span> Every skill</td></tr>
+        <tr><td>Actual formulas (VaR, DCF, Kelly)</td><td class="cross">✗ Never</td><td class="ours"><span class="check">✓</span> Finance skills</td></tr>
+        <tr><td>Output format with example</td><td class="cross">✗ Sometimes</td><td class="ours"><span class="check">✓</span> Always</td></tr>
+        <tr><td>Forbidden behaviors / constraints</td><td class="cross">✗ Never</td><td class="ours"><span class="check">✓</span> Every skill</td></tr>
+        <tr><td>Named frameworks (STRIDE, HEDIS, MEDDPICC)</td><td class="cross">✗ Never</td><td class="ours"><span class="check">✓</span> 100+ frameworks</td></tr>
+        <tr><td>Healthcare / Biotech / Climate skills</td><td class="cross">✗ None</td><td class="ours"><span class="check">✓</span> Full coverage</td></tr>
+        <tr><td>MCP server builder</td><td class="cross">✗ None</td><td class="ours"><span class="check">✓</span> Python + TypeScript</td></tr>
+        <tr><td>Agentic workflow patterns</td><td class="cross">✗ None</td><td class="ours"><span class="check">✓</span> ReAct, HITL, etc.</td></tr>
+        <tr><td>License</td><td>Varies</td><td class="ours">MIT — fully free</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-orb cta-orb-1"></div>
+  <div class="cta-orb cta-orb-2"></div>
+  <div class="container" style="position:relative;">
+    <div class="section-pill" style="background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.3);color:var(--gold-300)">
+      ⭐ Open Source · Free Forever
+    </div>
+    <h2 class="section-title" style="color:#fff;margin-top:.5rem">Ready to activate your<br/><span class="gold">AI workforce?</span></h2>
+    <p>100+ specialist agents. Zero setup cost. Paste one file into Claude and transform it from a generalist into a coordinated AI team.</p>
+    <div class="cta-buttons">
+      <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version" class="btn-gold" target="_blank">⭐ Star on GitHub →</a>
+      <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version/blob/main/agentOS-orchestrator/SKILL.md" class="btn-outline" style="border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8)" target="_blank">View Full System Prompt</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Agent<span>OS</span> 2.0</div>
+    <div class="footer-links">
+      <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version" target="_blank">GitHub</a>
+      <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+      <a href="https://github.com/sohaibdevv/Claude-Agentic-Skills2.0-version/issues" target="_blank">Issues</a>
+      <a href="https://github.com/sohaibdevv" target="_blank">@sohaibdevv</a>
+    </div>
+    <div>MIT License · Built by <a href="https://github.com/sohaibdevv" target="_blank">@sohaibdevv</a></div>
+  </div>
+</footer>
+
+<script>
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Scroll-reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll(
+    '.domain-card, .step-card, .skill-card, .qs-card, .stats-bar-item, .apex-card'
+  ).forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = `opacity .55s ${i * 0.04}s ease, transform .55s ${i * 0.04}s ease`;
+    io.observe(el);
+  });
+
+  // Animated counter — data-target based
+  const counterIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.target || el.textContent.replace(/\D/g, ''));
+      if (isNaN(target)) return;
+      const suffix = el.dataset.target ? '+' : el.textContent.replace(/[\d]/g, '');
+      let start = 0;
+      const duration = 1400;
+      const step = Math.max(1, Math.ceil(target / (duration / 16)));
+      const timer = setInterval(() => {
+        start = Math.min(start + step, target);
+        el.textContent = start + suffix;
+        if (start >= target) { el.textContent = target + suffix; clearInterval(timer); }
+      }, 16);
+      counterIO.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(c => counterIO.observe(c));
+
+  // Gold particle canvas (hero background)
+  const canvas = document.getElementById('particles');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let W, H, particles;
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    function mkParticle() {
+      return {
+        x: Math.random() * W, y: Math.random() * H,
+        r: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        a: Math.random() * 0.4 + 0.1
+      };
+    }
+    function init() {
+      resize();
+      particles = Array.from({length: 80}, mkParticle);
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(251,191,36,${p.a})`;
+        ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) {
+          p.x = Math.random() * W; p.y = Math.random() * H;
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+    init();
+    draw();
+    window.addEventListener('resize', () => { resize(); particles = Array.from({length:80}, mkParticle); });
+  }
+
+  // Add apex link nav
+  const nav = document.querySelector('.nav-links');
+  if (nav) {
+    const apexLink = document.createElement('a');
+    apexLink.href = '#apex';
+    apexLink.textContent = '👑 Apex';
+    apexLink.style.cssText = 'font-weight:800;color:var(--gold-600);';
+    nav.insertBefore(apexLink, nav.querySelector('.nav-cta'));
+  }
+</script>
+</body>
+</html>

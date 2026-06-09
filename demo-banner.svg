@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap');
+      .mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+      .title { font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 700; }
+    </style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0602;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a0e05;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d0602;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b" />
+      <stop offset="50%" style="stop-color:#fcd34d" />
+      <stop offset="100%" style="stop-color:#d97706" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d97706;stop-opacity:0" />
+      <stop offset="30%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="termClip">
+      <rect x="30" y="140" width="840" height="300" rx="8"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid dots -->
+  <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="15" cy="15" r="0.8" fill="#fbbf24" opacity="0.08"/>
+  </pattern>
+  <rect width="900" height="480" fill="url(#dots)"/>
+
+  <!-- Top ambient glow orb left -->
+  <ellipse cx="150" cy="80" rx="200" ry="100" fill="#d97706" opacity="0.06"/>
+  <!-- Top ambient glow orb right -->
+  <ellipse cx="750" cy="400" rx="200" ry="120" fill="#f59e0b" opacity="0.05"/>
+
+  <!-- ── HEADER ── -->
+  <!-- AgentOS badge -->
+  <rect x="370" y="18" width="160" height="26" rx="13" fill="#fbbf24" opacity="0.12"/>
+  <text x="450" y="36" text-anchor="middle" fill="#fcd34d" font-size="11" class="mono" letter-spacing="3" opacity="0.9">AGENT  OS  2.0</text>
+
+  <!-- Main title -->
+  <text x="450" y="90" text-anchor="middle" fill="url(#goldGrad)" font-size="48" class="title" filter="url(#softglow)" letter-spacing="-1">AgentOS</text>
+  <text x="450" y="118" text-anchor="middle" fill="#92400e" font-size="14" class="mono" letter-spacing="6" opacity="0.8">THE  CLAUDE  SKILL  OPERATING  SYSTEM</text>
+
+  <!-- Gold divider line -->
+  <rect x="100" y="132" width="700" height="1" fill="url(#lineGrad)" opacity="0.6"/>
+
+  <!-- ── TERMINAL WINDOW ── -->
+  <rect x="30" y="145" width="840" height="298" rx="10" fill="#0a0603" opacity="0.95" stroke="#3d2600" stroke-width="1.5"/>
+  <!-- Terminal title bar -->
+  <rect x="30" y="145" width="840" height="32" rx="10" fill="#1c1000" stroke="#3d2600" stroke-width="1.5"/>
+  <rect x="30" y="165" width="840" height="12" fill="#1c1000"/>
+  <!-- Traffic lights -->
+  <circle cx="56" cy="161" r="6" fill="#ff5f57" opacity="0.8"/>
+  <circle cx="76" cy="161" r="6" fill="#febc2e" opacity="0.8"/>
+  <circle cx="96" cy="161" r="6" fill="#28c840" opacity="0.8"/>
+  <!-- Terminal title -->
+  <text x="450" y="166" text-anchor="middle" fill="#92400e" font-size="11" class="mono" letter-spacing="2">claude  —  agentOS  activated</text>
+
+  <!-- Terminal content lines -->
+  <g clip-path="url(#termClip)">
+
+    <!-- Line 1: prompt -->
+    <text x="55" y="200" fill="#fbbf24" font-size="12" class="mono" opacity="0">
+      <tspan fill="#4ade80">❯</tspan>
+      <tspan fill="#fbbf24"> /agentOS-orchestrator activate --all-agents</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.04;0.06;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Line 2: activation -->
+    <text x="55" y="220" fill="#fcd34d" font-size="12" class="mono" opacity="0">
+      ✦ AgentOS 2.0 — 96 skills across 8 domains loaded
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.1;0.13;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Line 3: divider -->
+    <text x="55" y="238" fill="#3d2600" font-size="12" class="mono" opacity="0">
+      ─────────────────────────────────────────────────────────────────────
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.15;0.18;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Agents activating - staggered -->
+    <text x="55" y="258" fill="#86efac" font-size="11.5" class="mono" opacity="0">
+      <tspan fill="#fbbf24">[ FINANCE ]</tspan>
+      <tspan fill="#6b7280"> QuantTrader · CFOIntelligence · FinancialModelBuilder · PortfolioOptimizer</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2;0.23;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="55" y="276" fill="#86efac" font-size="11.5" class="mono" opacity="0">
+      <tspan fill="#fbbf24">[ SECURITY ]</tspan>
+      <tspan fill="#6b7280"> CybersecurityAnalyst · AIRedTeamer · RiskSentinel · SecurityChief</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.27;0.3;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="55" y="294" fill="#86efac" font-size="11.5" class="mono" opacity="0">
+      <tspan fill="#fbbf24">[ ENGINEERING ]</tspan>
+      <tspan fill="#6b7280"> SeniorDev · RAGArchitect · MLOpsEngineer · MCPBuilder · SystemArchitect</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.34;0.37;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="55" y="312" fill="#86efac" font-size="11.5" class="mono" opacity="0">
+      <tspan fill="#fbbf24">[ DATA / AI ]</tspan>
+      <tspan fill="#6b7280"> DataScientistPro · KnowledgeGraphBuilder · SyntheticDataGen · TimeseriesOracle</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.41;0.44;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="55" y="330" fill="#86efac" font-size="11.5" class="mono" opacity="0">
+      <tspan fill="#fbbf24">[ BUSINESS ]</tspan>
+      <tspan fill="#6b7280"> StartupAdvisor · MaDealmaker · B2BSalesPlaybook · ChurnAnalyst · SAASMetrics</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.48;0.51;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="55" y="348" fill="#86efac" font-size="11.5" class="mono" opacity="0">
+      <tspan fill="#fbbf24">[ HEALTHCARE ]</tspan>
+      <tspan fill="#6b7280"> HealthcareAnalytics · BiotechAnalyst · InsuranceActuary · ComplianceAI</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.55;0.58;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="55" y="366" fill="#86efac" font-size="11.5" class="mono" opacity="0">
+      <tspan fill="#fbbf24">[ CONTENT ]</tspan>
+      <tspan fill="#6b7280"> ContentResearchWriter · PodcastProducer · VideoContentCreator · SEOAuditor</tspan>
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.62;0.65;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Final status line -->
+    <text x="55" y="390" fill="#fbbf24" font-size="13" class="mono" font-weight="700" opacity="0" filter="url(#glow)">
+      ✦ All 96 agents online. AgentOS 2.0 ready.
+      <animate attributeName="opacity" values="0;0;0;1;0.6;1;0.6;1" keyTimes="0;0.69;0.71;0.74;0.8;0.86;0.92;1" dur="8s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Blinking cursor -->
+    <rect x="55" y="398" width="8" height="14" fill="#fbbf24" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;1;0;1;0;1;0" keyTimes="0;0.74;0.76;0.78;0.82;0.86;0.90;0.94;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+
+  </g>
+
+  <!-- ── STATS BAR ── -->
+  <rect x="30" y="455" width="840" height="1" fill="url(#lineGrad)" opacity="0.4"/>
+
+  <!-- Stat 1 -->
+  <text x="180" y="474" text-anchor="middle" fill="#fcd34d" font-size="13" class="title" filter="url(#glow)">96+</text>
+  <text x="180" y="488" text-anchor="middle" fill="#78350f" font-size="9" class="mono" letter-spacing="2">SKILLS</text>
+
+  <!-- Divider -->
+  <rect x="295" y="462" width="1" height="28" fill="#3d2600" opacity="0.8"/>
+
+  <!-- Stat 2 -->
+  <text x="390" y="474" text-anchor="middle" fill="#fcd34d" font-size="13" class="title" filter="url(#glow)">8</text>
+  <text x="390" y="488" text-anchor="middle" fill="#78350f" font-size="9" class="mono" letter-spacing="2">DOMAINS</text>
+
+  <!-- Divider -->
+  <rect x="480" y="462" width="1" height="28" fill="#3d2600" opacity="0.8"/>
+
+  <!-- Stat 3 -->
+  <text x="575" y="474" text-anchor="middle" fill="#fcd34d" font-size="13" class="title" filter="url(#glow)">MIT</text>
+  <text x="575" y="488" text-anchor="middle" fill="#78350f" font-size="9" class="mono" letter-spacing="2">LICENSE</text>
+
+  <!-- Divider -->
+  <rect x="660" y="462" width="1" height="28" fill="#3d2600" opacity="0.8"/>
+
+  <!-- Stat 4 -->
+  <text x="760" y="474" text-anchor="middle" fill="#fcd34d" font-size="13" class="title" filter="url(#glow)">Claude 4</text>
+  <text x="760" y="488" text-anchor="middle" fill="#78350f" font-size="9" class="mono" letter-spacing="2">OPTIMIZED</text>
+
+</svg>

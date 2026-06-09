@@ -1,0 +1,11 @@
+# GitHub Linguist language detection
+# Tell GitHub to count all languages in examples/
+
+examples/*.py   linguist-detectable=true
+examples/*.ts   linguist-detectable=true
+examples/*.js   linguist-detectable=true
+examples/*.sh   linguist-detectable=true
+examples/*.go   linguist-detectable=true
+
+# Don't let index.html dominate the language bar
+index.html      linguist-documentation

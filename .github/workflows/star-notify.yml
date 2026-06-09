@@ -1,0 +1,30 @@
+name: Star Milestone Tracker
+
+on:
+  watch:
+    types: [started]
+
+jobs:
+  milestone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check star count
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const repo = await github.rest.repos.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            const stars = repo.data.stargazers_count;
+            const milestones = [10, 25, 50, 100, 250, 500, 1000];
+
+            if (milestones.includes(stars)) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🌟 ${stars} Stars Milestone Reached!`,
+                body: `AgentOS 2.0 just hit **${stars} stars**! 🎉\n\nTime to share on social media:\n- [ ] Post on X/Twitter\n- [ ] Post on LinkedIn\n- [ ] Post on Reddit r/ClaudeAI\n- [ ] Post on HN if >100 stars`,
+                labels: ['milestone']
+              });
+            }

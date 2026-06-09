@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0602"/>
+      <stop offset="100%" style="stop-color:#1a0e05"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#fcd34d"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="420" fill="url(#bg3)"/>
+  <pattern id="dp" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="14" cy="14" r="0.8" fill="#fbbf24" opacity="0.07"/>
+  </pattern>
+  <rect width="900" height="420" fill="url(#dp)"/>
+  <ellipse cx="200" cy="100" rx="300" ry="150" fill="#d97706" opacity="0.04"/>
+  <ellipse cx="700" cy="320" rx="250" ry="130" fill="#fbbf24" opacity="0.04"/>
+
+  <!-- Title -->
+  <text x="450" y="46" text-anchor="middle" fill="url(#g1)" font-size="13" font-family="'Courier New',monospace" letter-spacing="5" filter="url(#glow3)">THE  4  APEX  LEGENDARY  SKILLS</text>
+  <rect x="100" y="56" width="700" height="1" fill="#3d2600" opacity="0.8"/>
+
+  <!-- Card 1: FinanceOracle -->
+  <rect x="28" y="72" width="196" height="316" rx="10" fill="#0f0803" stroke="#3d2200" stroke-width="1.2"/>
+  <rect x="28" y="72" width="196" height="3" rx="2" fill="url(#g1)" opacity="0.9"/>
+  <text x="126" y="102" text-anchor="middle" fill="#fbbf24" font-size="22" font-family="monospace">♦</text>
+  <text x="126" y="122" text-anchor="middle" fill="#fcd34d" font-size="13" font-family="'Courier New',monospace" font-weight="bold" filter="url(#glow3)">FinanceOracle</text>
+  <text x="126" y="138" text-anchor="middle" fill="#92400e" font-size="9" font-family="monospace" letter-spacing="1">FINANCE APEX</text>
+  <line x1="48" y1="148" x2="204" y2="148" stroke="#2d1900" stroke-width="1"/>
+  <g font-family="'Courier New',monospace" font-size="9.5" fill="#8a6030">
+    <text x="44" y="165">▸ Black-Scholes</text>
+    <text x="44" y="181">▸ Black-Litterman</text>
+    <text x="44" y="197">▸ Risk Parity</text>
+    <text x="44" y="213">▸ Hedge Fund Strats</text>
+    <text x="44" y="229">▸ Fixed Income</text>
+    <text x="44" y="245">▸ Yale Endowment</text>
+    <text x="44" y="261">▸ Tax Optimization</text>
+  </g>
+  <rect x="44" y="316" width="108" height="22" rx="5" fill="#1c0e00" stroke="#d97706" stroke-width="1"/>
+  <text x="98" y="331" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="monospace">Python · TypeScript · Go</text>
+
+  <!-- Card 2: ClaudeMythos -->
+  <rect x="238" y="72" width="196" height="316" rx="10" fill="#0f0803" stroke="#3d2200" stroke-width="1.2"/>
+  <rect x="238" y="72" width="196" height="3" rx="2" fill="url(#g1)" opacity="0.9"/>
+  <text x="336" y="102" text-anchor="middle" fill="#fbbf24" font-size="22" font-family="monospace">✦</text>
+  <text x="336" y="122" text-anchor="middle" fill="#fcd34d" font-size="13" font-family="'Courier New',monospace" font-weight="bold" filter="url(#glow3)">ClaudeMythos</text>
+  <text x="336" y="138" text-anchor="middle" fill="#92400e" font-size="9" font-family="monospace" letter-spacing="1">APEX INTELLIGENCE</text>
+  <line x1="258" y1="148" x2="414" y2="148" stroke="#2d1900" stroke-width="1"/>
+  <g font-family="'Courier New',monospace" font-size="9.5" fill="#8a6030">
+    <text x="254" y="165">▸ 7-Level Civ Stack</text>
+    <text x="254" y="181">▸ SystemPromptForge</text>
+    <text x="254" y="197">▸ Cross-Domain Oracle</text>
+    <text x="254" y="213">▸ Paradox Resolution</text>
+    <text x="254" y="229">▸ FutureHistorian</text>
+    <text x="254" y="245">▸ AgentOS Lore</text>
+    <text x="254" y="261">▸ Mythic World-Build</text>
+  </g>
+  <rect x="254" y="316" width="108" height="22" rx="5" fill="#1c0e00" stroke="#d97706" stroke-width="1"/>
+  <text x="308" y="331" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="monospace">Apex · Legendary · Rare</text>
+
+  <!-- Card 3: CEOWarRoom -->
+  <rect x="448" y="72" width="196" height="316" rx="10" fill="#0f0803" stroke="#3d2200" stroke-width="1.2"/>
+  <rect x="448" y="72" width="196" height="3" rx="2" fill="url(#g1)" opacity="0.9"/>
+  <text x="546" y="102" text-anchor="middle" fill="#fbbf24" font-size="22" font-family="monospace">⬡</text>
+  <text x="546" y="122" text-anchor="middle" fill="#fcd34d" font-size="13" font-family="'Courier New',monospace" font-weight="bold" filter="url(#glow3)">CEOWarRoom</text>
+  <text x="546" y="138" text-anchor="middle" fill="#92400e" font-size="9" font-family="monospace" letter-spacing="1">CEO APEX</text>
+  <line x1="468" y1="148" x2="624" y2="148" stroke="#2d1900" stroke-width="1"/>
+  <g font-family="'Courier New',monospace" font-size="9.5" fill="#8a6030">
+    <text x="464" y="165">▸ ROIC Capital Stack</text>
+    <text x="464" y="181">▸ 6-Source Moat 2025</text>
+    <text x="464" y="197">▸ Activist Defense</text>
+    <text x="464" y="213">▸ Board Management</text>
+    <text x="464" y="229">▸ Crisis Comms 5Rs</text>
+    <text x="464" y="245">▸ Moat Erosion Signals</text>
+    <text x="464" y="261">▸ Org Design at Scale</text>
+  </g>
+  <rect x="464" y="316" width="108" height="22" rx="5" fill="#1c0e00" stroke="#d97706" stroke-width="1"/>
+  <text x="518" y="331" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="monospace">TypeScript · Python</text>
+
+  <!-- Card 4: FounderToCEO -->
+  <rect x="658" y="72" width="196" height="316" rx="10" fill="#0f0803" stroke="#3d2200" stroke-width="1.2"/>
+  <rect x="658" y="72" width="196" height="3" rx="2" fill="url(#g1)" opacity="0.9"/>
+  <text x="756" y="102" text-anchor="middle" fill="#fbbf24" font-size="22" font-family="monospace">◈</text>
+  <text x="756" y="122" text-anchor="middle" fill="#fcd34d" font-size="13" font-family="'Courier New',monospace" font-weight="bold" filter="url(#glow3)">FounderToCEO</text>
+  <text x="756" y="138" text-anchor="middle" fill="#92400e" font-size="9" font-family="monospace" letter-spacing="1">FOUNDER APEX</text>
+  <line x1="678" y1="148" x2="834" y2="148" stroke="#2d1900" stroke-width="1"/>
+  <g font-family="'Courier New',monospace" font-size="9.5" fill="#8a6030">
+    <text x="674" y="165">▸ Pre-Seed → IPO</text>
+    <text x="674" y="181">▸ PMF Scorecard</text>
+    <text x="674" y="197">▸ Term Sheet Flags</text>
+    <text x="674" y="213">▸ Pivot Framework</text>
+    <text x="674" y="229">▸ VP Sales Rubric</text>
+    <text x="674" y="245">▸ Fundraise Narrative</text>
+    <text x="674" y="261">▸ Founder Psychology</text>
+  </g>
+  <rect x="674" y="316" width="108" height="22" rx="5" fill="#1c0e00" stroke="#d97706" stroke-width="1"/>
+  <text x="728" y="331" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="monospace">Python · TypeScript</text>
+
+  <!-- Bottom bar -->
+  <rect x="100" y="400" width="700" height="1" fill="#3d2600" opacity="0.6"/>
+  <text x="450" y="415" text-anchor="middle" fill="#3d2600" font-size="10" font-family="monospace" letter-spacing="3">AgentOS 2.0  ·  100+ Skills  ·  MIT License  ·  github.com/sohaibdevv</text>
+</svg>
