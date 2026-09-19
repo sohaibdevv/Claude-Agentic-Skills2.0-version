@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive browser for every AgentOS skill. Search, filter, inspect, and copy the complete SKILL.md source.">
+  <title>AgentOS Skill Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#17211b; --muted:#647068; --paper:#f7f8f3; --panel:#fff; --line:#dfe6dc; --green:#176b4c; --lime:#c9f06b; --coral:#ef765e; --shadow:0 18px 50px rgba(30,55,38,.10); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Sans',sans-serif; line-height:1.5; }
+    button, input { font:inherit; }
+    button { cursor:pointer; }
+    .topbar { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:70px; padding:0 5vw; background:rgba(247,248,243,.88); border-bottom:1px solid var(--line); backdrop-filter:blur(18px); }
+    .brand { color:var(--ink); text-decoration:none; font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.04em; font-size:1.18rem; }
+    .brand i { display:inline-block; width:10px; height:10px; margin-right:7px; background:var(--coral); border-radius:50%; }
+    .topbar a:last-child { color:var(--green); font-size:.9rem; font-weight:700; text-decoration:none; }
+    main { max-width:1440px; margin:auto; padding:68px 5vw 100px; }
+    .intro { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:40px; align-items:end; padding-bottom:54px; }
+    .eyebrow { margin:0 0 16px; color:var(--coral); font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { max-width:800px; margin:0; font:700 clamp(2.7rem,6vw,6.2rem)/.96 'Space Grotesk',sans-serif; letter-spacing:-.075em; }
+    .intro-copy { max-width:530px; margin:22px 0 0; color:var(--muted); font-size:1.08rem; }
+    .stats { display:flex; gap:30px; justify-content:flex-end; }
+    .stat strong { display:block; color:var(--green); font:700 2.6rem/1 'Space Grotesk',sans-serif; letter-spacing:-.06em; }
+    .stat span { display:block; margin-top:7px; color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; }
+    .toolbar { display:grid; grid-template-columns:minmax(220px,1fr) auto; gap:14px; padding:16px; background:var(--ink); border-radius:16px; box-shadow:var(--shadow); }
+    .search { position:relative; }
+    .search span { position:absolute; top:12px; left:16px; color:#96a39a; font-size:1.05rem; }
+    #search { width:100%; padding:13px 18px 13px 44px; color:#fff; background:#26342b; border:1px solid #415047; border-radius:9px; outline:none; }
+    #search::placeholder { color:#aab5ae; }
+    #search:focus { border-color:var(--lime); box-shadow:0 0 0 3px rgba(201,240,107,.15); }
+    .filter-row { display:flex; gap:8px; overflow:auto; scrollbar-width:none; }
+    .filter-row::-webkit-scrollbar { display:none; }
+    .filter { flex:0 0 auto; padding:0 14px; color:#cad4cd; background:transparent; border:1px solid #46544b; border-radius:8px; font-size:.84rem; }
+    .filter.active, .filter:hover { color:var(--ink); background:var(--lime); border-color:var(--lime); }
+    .results-line { display:flex; justify-content:space-between; align-items:center; min-height:70px; color:var(--muted); font-size:.9rem; }
+    #clear { display:none; padding:0; color:var(--green); background:none; border:0; font-weight:700; }
+    #clear.visible { display:block; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:14px; }
+    .card { display:flex; flex-direction:column; min-height:245px; padding:22px; background:var(--panel); border:1px solid var(--line); border-radius:14px; transition:transform .2s, box-shadow .2s, border-color .2s; animation:rise .35s both; }
+    .card:hover { transform:translateY(-4px); border-color:#abc69e; box-shadow:var(--shadow); }
+    .card-top { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .tag { color:var(--green); font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    .file { color:#9aa59c; font:500 .7rem/1.3 monospace; }
+    .card h2 { margin:18px 0 10px; font:600 1.35rem/1.1 'Space Grotesk',sans-serif; letter-spacing:-.04em; }
+    .card p { display:-webkit-box; overflow:hidden; margin:0; color:var(--muted); font-size:.9rem; line-height:1.55; -webkit-box-orient:vertical; -webkit-line-clamp:4; line-clamp:4; }
+    .card button { align-self:flex-start; margin-top:auto; padding:10px 0 0; color:var(--green); background:none; border:0; font-weight:700; }
+    .empty { display:none; padding:70px 20px; color:var(--muted); text-align:center; }
+    .empty.show { display:block; }
+    .modal { position:fixed; inset:0; z-index:30; display:none; padding:4vh 4vw; background:rgba(16,26,20,.72); backdrop-filter:blur(5px); }
+    .modal.open { display:flex; animation:fade .2s both; }
+    .reader { display:flex; flex-direction:column; width:min(1050px,100%); max-height:100%; margin:auto; overflow:hidden; background:var(--paper); border-radius:18px; box-shadow:0 30px 100px rgba(0,0,0,.3); }
+    .reader-head { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:25px 30px 20px; background:var(--panel); border-bottom:1px solid var(--line); }
+    .reader-head h2 { margin:0; font:600 1.7rem/1 'Space Grotesk',sans-serif; letter-spacing:-.04em; }
+    .reader-head small { display:block; margin-top:7px; color:var(--muted); font-family:monospace; }
+    .reader-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .reader-actions button, .reader-actions a { padding:9px 13px; color:var(--green); background:var(--paper); border:1px solid var(--line); border-radius:8px; font-size:.8rem; font-weight:700; text-decoration:none; }
+    .reader-actions button:hover, .reader-actions a:hover { background:var(--lime); border-color:var(--lime); }
+    #close { width:38px; padding:8px; color:var(--ink); font-size:1.3rem; }
+    pre { overflow:auto; margin:0; padding:30px; color:#26342b; font:14px/1.7 'DM Sans',sans-serif; white-space:pre-wrap; tab-size:2; }
+    .error { grid-column:1/-1; padding:20px; color:#8a2c1c; background:#fff0ec; border:1px solid #f3c0b4; border-radius:12px; }
+    @keyframes rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+    @keyframes fade { from { opacity:0; } to { opacity:1; } }
+    @media (max-width:760px) { .topbar { padding:0 20px; } .topbar a:last-child { display:none; } main { padding:45px 20px 70px; } .intro { display:block; } .stats { justify-content:flex-start; margin-top:32px; } .toolbar { grid-template-columns:1fr; } .reader-head { padding:20px; } pre { padding:20px; font-size:13px; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><i></i>AgentOS / Library</a>
+    <a href="index.html">Back to overview ↗</a>
+  </header>
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">The complete field guide</p>
+        <h1>Find the right mind for the job.</h1>
+        <p class="intro-copy">Browse every specialist agent in this repository. Search their names and descriptions, filter by domain, then open the complete source for any skill.</p>
+      </div>
+      <div class="stats"><div class="stat"><strong id="total">122</strong><span>skills indexed</span></div><div class="stat"><strong id="visible">122</strong><span>showing now</span></div></div>
+    </section>
+    <section class="toolbar" aria-label="Skill filters">
+      <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search skills, domains, or capabilities..." autocomplete="off"></label>
+      <div class="filter-row" id="filters"><button class="filter active" data-domain="all">All skills</button><button class="filter" data-domain="engineering">Engineering</button><button class="filter" data-domain="business">Business</button><button class="filter" data-domain="data">Data & AI</button><button class="filter" data-domain="operations">Operations</button><button class="filter" data-domain="specialized">Specialized</button></div>
+    </section>
+    <div class="results-line"><span id="result-label">Loading the library...</span><button id="clear">Clear filters</button></div>
+    <section class="grid" id="grid" aria-live="polite"></section>
+    <div class="empty" id="empty">No skills match that search. Try a broader term.</div>
+  </main>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+    <article class="reader"><header class="reader-head"><div><h2 id="reader-title">Skill</h2><small id="reader-path"></small></div><div class="reader-actions"><button id="copy">Copy source</button><a id="open-file" target="_blank" rel="noopener">Open file</a><button id="close" aria-label="Close reader">×</button></div></header><pre id="source"></pre></article>
+  </div>
+  <script>
+    const files = [
+      "abtest-scientist","agent-smith","agentOS-orchestrator","agentic-workflow-builder","ai-product-manager","ai-red-teamer","api-design-architect","api-integrator","arxiv-researcher","b2b-sales-playbook","biotech-analyst","board-deck-builder","business-intelligence-pro","ceo-war-room","cfo-intelligence","churn-analyst","claude-mythos","climate-tech-analyst","cloud-cost-optimizer","code-migrator","code-reviewer","community-builder","compliance-ai","content-ops-os","content-research-writer","contract-drafter","crisis-intelligence","crypto-sage","culture-architect","customer-interview-analyst","customer-success","cybersecurity-analyst","data-governance-agent","data-pipeline-pro","data-scientist-pro","data-warehouse-architect","database-genius","design-system-architect","developer-advocate","developer-experience-os","devops-commander","document-processor","engineering-manager","enterprise-sales-os","esg-compass","finance-oracle","financial-model-builder","founder-to-ceo","github-intelligence","go-to-market-commander","growth-hacking","healthcare-analytics","hr-analytics","incident-commander","innovation-catalyst","insurance-actuary","knowledge-graph-builder","learning-coach","legal-eagle","load-tester","ma-dealmaker","marketing-os","marketplace-strategist","mcp-builder","meeting-analyzer","mlops-engineer","multi-modal-analyst","network-effects-analyst","newsletter-engine","okr-engine","onboarding-designer","partnership-intelligence","patent-analyst","performance-marketing-os","podcast-producer","portfolio-optimizer","presentation-maestro","pricing-strategist","product-analytics-os","product-roadmap-os","product-strategy","project-command","prompt-engineer","quant-researcher","quant-trader","rag-architect","real-estate-intelligence","realtime-data-agent","remote-team-commander","research-intelligence","risk-sentinel","saas-metrics-analyst","sales-enablement-os","sales-intelligence","security-chief","senior-dev","seo-auditor","sprint-master","sql-analyzer","startup-advisor","startup-cto","startup-finance-controller","startup-hiring-machine","startup-legal-shield","supply-chain-optimizer","supply-chain-oracle","synthetic-data-generator","system-architect","talent-brand-builder","talent-management-os","team-performance-os","technical-pm","technical-writer-pro","template-skill","timeseries-oracle","ui-ux-designer","user-research-os","venture-intelligence","video-content-creator","voice-agent-builder","web3-developer","webapp-tester"
+    ];
+    const engineering = /api|agent|code|developer|devops|design-system|mcp|mlops|rag|security|senior-dev|system-architect|technical|webapp|voice|load-tester/i;
+    const business = /cfo|finance|founder|growth|marketing|sales|venture|pricing|portfolio|quant|crypto|esg|insurance|ma-dealmaker|startup|ceo|partnership|real-estate|supply-chain|compliance|legal|patent/i;
+    const data = /analytics|data|database|bi-analytics|business-intelligence|knowledge-graph|multi-modal|research|sql|timeseries|abtest|synthetic/i;
+    const operations = /customer|hr|okr|onboarding|project|sprint|team|talent|product|meeting|newsletter|content|presentation|podcast|video|technical-writer|community|remote/i;
+    const state = { items: [], query: '', domain: 'all' };
+    const $ = (id) => document.getElementById(id);
+    const titleize = (value) => value.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    const domainFor = (name) => data.test(name) ? 'data' : engineering.test(name) ? 'engineering' : business.test(name) ? 'business' : operations.test(name) ? 'operations' : 'specialized';
+    const parseSkill = (path, text) => {
+      const name = (text.match(/^name:\s*(.+)$/m) || [])[1]?.trim() || path;
+      const description = (text.match(/^description:\s*[>|]?\s*([\s\S]*?)(?=\n(?:license|---):|\n---)/m) || [])[1] || '';
+      return { path, slug:path.split('/')[0], name, description:description.replace(/\s+/g, ' ').trim(), text, domain:domainFor(path) };
+    };
+    const load = async () => {
+      const results = await Promise.all(files.map(async slug => {
+        const path = `${slug}/SKILL.md`;
+        try { const response = await fetch(path); if (!response.ok) throw new Error(response.status); return parseSkill(path, await response.text()); }
+        catch (error) { return { path, slug, name:titleize(slug), description:'Unable to load this file. Run the page through a local web server to enable file access.', text:'', domain:domainFor(slug), error:true }; }
+      }));
+      state.items = results;
+      $('total').textContent = results.filter(item => !item.error).length;
+      render();
+    };
+    const render = () => {
+      const query = state.query.toLowerCase();
+      const matches = state.items.filter(item => (state.domain === 'all' || item.domain === state.domain) && (!query || `${item.name} ${item.slug} ${item.description}`.toLowerCase().includes(query)));
+      $('visible').textContent = matches.length;
+      $('result-label').textContent = `${matches.length} skill${matches.length === 1 ? '' : 's'} in view`;
+      $('clear').classList.toggle('visible', Boolean(state.query || state.domain !== 'all'));
+      $('empty').classList.toggle('show', matches.length === 0);
+      $('grid').innerHTML = matches.map((item, index) => `<article class="card" style="animation-delay:${Math.min(index,12) * 20}ms"><div class="card-top"><span class="tag">${item.domain}</span><span class="file">${item.slug}/</span></div><h2>${escapeHtml(item.name)}</h2><p>${escapeHtml(item.description)}</p><button data-open="${item.slug}">Read full skill →</button></article>`).join('');
+    };
+    const escapeHtml = (value) => value.replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;' }[char]));
+    $('search').addEventListener('input', event => { state.query = event.target.value; render(); });
+    $('filters').addEventListener('click', event => { const button = event.target.closest('[data-domain]'); if (!button) return; state.domain = button.dataset.domain; document.querySelectorAll('.filter').forEach(item => item.classList.toggle('active', item === button)); render(); });
+    $('clear').addEventListener('click', () => { state.query = ''; state.domain = 'all'; $('search').value = ''; document.querySelectorAll('.filter').forEach(item => item.classList.toggle('active', item.dataset.domain === 'all')); render(); });
+    $('grid').addEventListener('click', event => { const button = event.target.closest('[data-open]'); if (!button) return; const item = state.items.find(entry => entry.slug === button.dataset.open); if (!item) return; $('reader-title').textContent = item.name; $('reader-path').textContent = item.path; $('source').textContent = item.text || item.description; $('open-file').href = item.path; $('modal').classList.add('open'); document.body.style.overflow = 'hidden'; });
+    const close = () => { $('modal').classList.remove('open'); document.body.style.overflow = ''; };
+    $('close').addEventListener('click', close); $('modal').addEventListener('click', event => { if (event.target === $('modal')) close(); }); document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+    $('copy').addEventListener('click', async () => { await navigator.clipboard.writeText($('source').textContent); $('copy').textContent = 'Copied'; setTimeout(() => $('copy').textContent = 'Copy source', 1400); });
+    load();
+  </script>
+</body>
+</html>
